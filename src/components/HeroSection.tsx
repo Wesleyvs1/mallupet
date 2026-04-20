@@ -189,16 +189,6 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      {/* Scroll indicator */}
-      <div style={{
-        position: "absolute", bottom: "2rem", left: "50%",
-        transform: "translateX(-50%)",
-        display: "flex", flexDirection: "column", alignItems: "center", gap: "0.4rem",
-        color: "rgba(255,255,255,0.5)", fontSize: "0.75rem", fontWeight: 600
-      }}>
-        <span>Role para baixo</span>
-        <div style={{ animation: "floatPaw 1.5s ease-in-out infinite", fontSize: "1.2rem" }}>↓</div>
-      </div>
 
       <style>{`
         @media (max-width: 768px) {
