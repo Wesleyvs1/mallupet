@@ -29,9 +29,9 @@ export default function Navbar() {
       style={{ padding: scrolled ? "0.5rem 1.5rem" : "1rem 1.5rem" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
-        <Link href="#hero" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+        <Link href="#hero" className="navbar-logo" style={{ display: "flex", alignItems: "center", textDecoration: "none", position: "relative" }}>
           <Image src="/logo_clean.png" alt="Mallu Pet Logo" width={80} height={80}
-            style={{ objectFit: "contain" }} />
+            style={{ objectFit: "contain", width: "100%", height: "100%" }} />
         </Link>
 
         {/* Desktop Links */}
@@ -101,6 +101,10 @@ export default function Navbar() {
         @media (max-width: 768px) {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: block !important; }
+          .navbar-logo {
+            width: 60px !important;
+            height: 60px !important;
+          }
         }
         @media (min-width: 769px) {
           .show-mobile { display: none !important; }
