@@ -23,7 +23,7 @@ export default function HeroSection() {
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        padding: "7rem 1.5rem 4rem",
+        padding: "7rem 1.5rem 6rem",
       }}>
 
       {/* Floating Paw Prints */}
@@ -109,8 +109,9 @@ export default function HeroSection() {
           </div>
 
           {/* Stats row */}
-          <div style={{
-            display: "flex", gap: "2rem", marginTop: "3rem", flexWrap: "wrap"
+          <div className="hero-stats" style={{
+            display: "flex", gap: "2rem", marginTop: "3rem", flexWrap: "wrap",
+            paddingBottom: "2rem"
           }}>
             {[
               { num: "500+", label: "Pets Atendidos" },
@@ -238,6 +239,11 @@ export default function HeroSection() {
             flex-direction: column;
             align-items: center;
             padding: 0 10px;
+          }
+          .hero-stats {
+            margin-bottom: 4rem !important;
+            justify-content: center;
+            gap: 1.5rem !important;
           }
           .btn-consultor, .btn-primary {
             width: 100% !important;
