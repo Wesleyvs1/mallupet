@@ -128,7 +128,7 @@ export default function HeroSection() {
         {/* Mascot + Logo */}
         <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
           {/* Glow ring */}
-          <div style={{
+          <div className="glow-ring" style={{
             position: "absolute",
             width: "420px", height: "420px",
             borderRadius: "50%",
@@ -137,7 +137,7 @@ export default function HeroSection() {
           }} />
 
           {/* Organic blob shape with mascot */}
-          <div className="animate-float-mascot" style={{
+          <div className="animate-float-mascot mascot-container" style={{
             position: "relative", zIndex: 2,
             width: "420px", height: "480px",
           }}>
@@ -168,7 +168,7 @@ export default function HeroSection() {
             </div>
 
             {/* Logo badge floating */}
-            <div style={{
+            <div className="mascot-logo" style={{
               position: "absolute", bottom: "30px", right: "-15px",
               width: "80px", height: "80px",
               overflow: "hidden",
@@ -195,9 +195,53 @@ export default function HeroSection() {
           .hero-grid {
             grid-template-columns: 1fr !important;
             text-align: center;
+            gap: 1.5rem !important;
           }
           .hero-grid > div:last-child {
             order: -1;
+            margin-bottom: 0;
+          }
+          .mascot-container {
+            width: 180px !important;
+            height: 200px !important;
+            margin: 0 auto;
+          }
+          .glow-ring {
+            width: 200px !important;
+            height: 200px !important;
+          }
+          .mascot-logo {
+            width: 45px !important;
+            height: 45px !important;
+            bottom: 15px !important;
+            right: -5px !important;
+          }
+          h1 {
+            font-size: 1.8rem !important;
+            padding: 0 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+            line-height: 1.2 !important;
+            margin: 0 auto 1rem !important;
+            max-width: 320px;
+          }
+          p {
+            font-size: 0.95rem !important;
+            padding: 0 15px;
+            margin: 0 auto 1.5rem !important;
+            line-height: 1.6 !important;
+            max-width: 280px !important;
+          }
+          .animate-fade-up {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 10px;
+          }
+          .btn-consultor, .btn-primary {
+            width: 100% !important;
+            justify-content: center;
           }
         }
       `}</style>
