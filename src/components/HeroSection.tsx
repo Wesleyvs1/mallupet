@@ -220,19 +220,19 @@ export default function HeroSection() {
           h1 {
             font-size: 1.8rem !important;
             padding: 0 10px;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            hyphens: auto;
+            overflow-wrap: normal;
+            word-wrap: normal;
+            hyphens: none;
             line-height: 1.2 !important;
-            margin: 0 auto 1rem !important;
-            max-width: 320px;
+            margin: 0 auto 1.2rem !important;
+            max-width: 90%;
           }
           p {
             font-size: 0.95rem !important;
-            padding: 0 15px;
-            margin: 0 auto 1.5rem !important;
+            padding: 0 10px;
+            margin: 0 auto 2rem !important;
             line-height: 1.6 !important;
-            max-width: 280px !important;
+            max-width: 90% !important;
           }
           .animate-fade-up {
             display: flex;
@@ -248,6 +248,9 @@ export default function HeroSection() {
           .btn-consultor, .btn-primary {
             width: 100% !important;
             justify-content: center;
+          }
+          h1 br {
+            display: none;
           }
         }
       `}</style>
