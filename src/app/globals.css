@@ -263,3 +263,18 @@ section[id] {
 .footer-link:hover {
   color: var(--teal-light);
 }
+
+/* ─── Global Icon & Image Protection ─── */
+img, svg, [role="img"], [aria-hidden="true"], .stars, .paw-float,
+.valor-card div:first-child,
+.services-grid div div:nth-child(2),
+.servico-card div:first-child,
+.btn-primary svg, .btn-whatsapp svg, .btn-consultor svg {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+}
+
+

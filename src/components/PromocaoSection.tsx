@@ -8,7 +8,7 @@ export default function PromocaoSection() {
       position: "relative", overflow: "hidden"
     }}>
       {/* Floating paws */}
-      {["5%","85%","20%","70%"].map((l, i) => (
+      {["5%", "85%", "20%", "70%"].map((l, i) => (
         <div key={i} className="paw-float" style={{
           top: `${20 + i * 20}%`, left: l,
           animationDelay: `${i * 0.5}s`,
@@ -30,19 +30,17 @@ export default function PromocaoSection() {
         </div>
 
         <h2 style={{
-          fontSize: "clamp(1.6rem, 8vw, 3.2rem)",
+          fontSize: "clamp(2rem, 5vw, 3.2rem)",
           fontWeight: 900, color: "white", lineHeight: 1.2,
-          marginBottom: "1rem",
-          padding: "0 1rem"
+          marginBottom: "1rem"
         }}>
-          Primeira Consulta com<br className="desktop-br" />
-          <span style={{ color: "var(--gold)" }}> Condições Especiais!</span>
+          Primeira Consulta com<br />gi
+          <span style={{ color: "var(--gold)" }}>Condições Especiais!</span>
         </h2>
 
         <p style={{
-          fontSize: "clamp(1rem, 4vw, 1.15rem)", color: "rgba(255,255,255,0.8)",
-          lineHeight: 1.6, marginBottom: "2rem", maxWidth: "600px", margin: "0 auto 2rem",
-          padding: "0 1rem"
+          fontSize: "1.15rem", color: "rgba(255,255,255,0.8)",
+          lineHeight: 1.7, marginBottom: "2.5rem", maxWidth: "600px", margin: "0 auto 2.5rem"
         }}>
           Seu pet merece o melhor cuidado desde o início!
           Aproveite nossa promoção para a primeira consulta e garanta o bem-estar do seu companheiro.
@@ -52,7 +50,7 @@ export default function PromocaoSection() {
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "1rem", marginBottom: "2.5rem"
+          gap: "1.5rem", marginBottom: "3rem"
         }} className="promo-grid">
           {[
             { icon: "✅", text: "Exame clínico completo" },
@@ -62,11 +60,10 @@ export default function PromocaoSection() {
             <div key={b.text} style={{
               background: "rgba(255,255,255,0.08)",
               border: "1px solid rgba(255,255,255,0.15)",
-              borderRadius: "1rem", padding: "1rem",
-              color: "white", fontWeight: 600,
-              fontSize: "0.95rem"
+              borderRadius: "1rem", padding: "1.2rem",
+              color: "white", fontWeight: 600
             }}>
-              <div style={{ fontSize: "1.3rem", marginBottom: "0.4rem" }}>{b.icon}</div>
+              <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{b.icon}</div>
               {b.text}
             </div>
           ))}
@@ -74,7 +71,7 @@ export default function PromocaoSection() {
 
         <a href="https://wa.me/5519981185783?text=Olá!%20Quero%20falar%20com%20um%20consultor%20sobre%20a%20promoção%20da%20primeira%20consulta."
           target="_blank" rel="noopener noreferrer"
-          className="btn-consultor" style={{ fontSize: "1.1rem", padding: "1rem 2rem", display: "inline-block" }}>
+          className="btn-consultor" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
           Fale com um Consultor
         </a>
 
@@ -84,12 +81,8 @@ export default function PromocaoSection() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          .promo-grid { 
-            grid-template-columns: 1fr !important;
-            padding: 0 1rem;
-          }
-          .desktop-br { display: none; }
+        @media (max-width: 580px) {
+          .promo-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

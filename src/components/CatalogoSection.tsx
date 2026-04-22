@@ -17,13 +17,25 @@ export default function CatalogoSection() {
 
   const filtered = useMemo(() => {
     return produtos.filter(p => {
+      const searchTermLower = searchTerm.toLowerCase().trim();
+      const matchesSearch = p.nome.toLowerCase().includes(searchTermLower) || 
+                           p.descricao.toLowerCase().includes(searchTermLower) ||
+                           p.categoria.toLowerCase().includes(searchTermLower);
+      
+      // If there is a search term, ignore category filter (search all products)
+      if (searchTermLower !== "") return matchesSearch;
+      
       const matchesCategory = categoriaAtiva === "Todos" || p.categoria === categoriaAtiva;
-      const matchesSearch = p.nome.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                           p.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           p.categoria.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesCategory && matchesSearch;
+      return matchesCategory;
     });
   }, [categoriaAtiva, searchTerm]);
+
+  const activeCategories = useMemo(() => {
+    return categorias.filter(cat => {
+      if (cat === "Todos") return true;
+      return produtos.some(p => p.categoria === cat);
+    });
+  }, []);
 
   const itemsPerPage = 6;
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
@@ -182,7 +194,7 @@ export default function CatalogoSection() {
                       minWidth: "240px", border: "1px solid rgba(43,188,212,0.1)"
                     }}
                   >
-                    {categorias.map(cat => (
+                    {activeCategories.map(cat => (
                       <button 
                         key={cat} 
                         onClick={() => {
@@ -294,14 +306,13 @@ export default function CatalogoSection() {
                       {prod.descricao.substring(0, 80)}...
                     </p>
 
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <span style={{ color: "var(--teal-dark)", fontWeight: 800, fontSize: "0.85rem" }}>
-                        {prod.preco}
-                      </span>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                       <span style={{
                         background: "var(--teal)", color: "white",
-                        padding: "0.3rem 0.8rem", borderRadius: "9999px",
-                        fontSize: "0.75rem", fontWeight: 700
+                        padding: "0.5rem 1.2rem", borderRadius: "9999px",
+                        fontSize: "0.8rem", fontWeight: 700,
+                        textAlign: "center", width: "100%",
+                        transition: "all 0.3s ease"
                       }}>
                         Ver detalhes
                       </span>

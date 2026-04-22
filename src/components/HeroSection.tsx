@@ -76,14 +76,14 @@ export default function HeroSection() {
           </div>
 
           <h1 style={{
-            fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+            fontSize: "clamp(1.8rem, 5vw, 3.8rem)",
             fontWeight: 900,
             color: "white",
             lineHeight: 1.15,
             marginBottom: "1.2rem"
           }}>
-            Cuidado Veterinário<br />
-            <span style={{ color: "var(--teal-light)" }}>com Amor</span> e<br />
+            Cuidado Veterinário{" "}<br />
+            <span style={{ color: "var(--teal-light)" }}>com Amor</span>{" "}e{" "}<br />
             <span style={{ color: "var(--teal-light)" }}>Dedicação!</span>
           </h1>
 
@@ -115,11 +115,20 @@ export default function HeroSection() {
           }}>
             {[
               { num: "+100", label: "Pets Atendidos" },
-              { num: "5 ⭐", label: "Avaliação Média" },
+              { num: "5", label: "Avaliação Média", icon: "⭐" },
               { num: "6+", label: "Serviços" },
             ].map(s => (
               <div key={s.label}>
-                <div style={{ fontSize: "1.8rem", fontWeight: 900, color: "var(--teal-light)" }}>{s.num}</div>
+                <div style={{ 
+                  fontSize: "1.8rem", 
+                  fontWeight: 900, 
+                  color: "var(--teal-light)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: s.icon ? "0.6rem" : "0"
+                }}>
+                  {s.num}{s.icon}
+                </div>
                 <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{s.label}</div>
               </div>
             ))}
