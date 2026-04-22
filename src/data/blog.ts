@@ -20,20 +20,20 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "alimentos-proibidos",
-    titulo: "Alimentos proibidos para cães e gatos",
-    desc: "Muitos alimentos comuns para humanos podem ser extremamente tóxicos para os pets. Saiba o que manter longe do seu amigo.",
+    titulo: "Alimentos proibidos para pets: frutas e legumes",
+    desc: "Chocolate, uva e cebola podem ser fatais. Conheça as frutas e legumes que você nunca deve dar ao seu melhor amigo.",
     tag: "Nutrição",
     imagem: "/blog/nutricao.png",
-    link: "https://www.vetnil.com.br/blog/alimentos-proibidos-para-caes-e-gatos",
+    link: "https://vetnil.com.br/blog/alimentos-proibidos-para-pets-frutas-e-legumes-que-caes-e-gatos-nao-podem-comer",
     isInstagram: false
   },
   {
     id: "higiene-bucal-pet",
-    titulo: "Saúde bucal: a importância da escovação",
-    desc: "A falta de higiene oral pode levar a doenças periodontais e até problemas cardíacos. Veja como prevenir o tártaro.",
+    titulo: "Saúde bucal de pets exige rotina de cuidados",
+    desc: "O CRMV-SP alerta sobre a importância da escovação e do acompanhamento profissional para prevenir doenças graves.",
     tag: "Cuidados",
     imagem: "/blog/higiene.png",
-    link: "https://drakey.com.br/importancia-da-escovacao-dentaria-em-pets/",
+    link: "https://crmvsp.gov.br/saude-bucal-de-pets-exige-rotina-de-cuidados-e-acompanhamento-profissional/",
     isInstagram: false
   }
 ];
