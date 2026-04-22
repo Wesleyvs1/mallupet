@@ -69,14 +69,14 @@ export default function PromocaoSection() {
           ))}
         </div>
 
-        <a href="https://wa.me/5519999545724?text=Olá!%20Quero%20falar%20com%20um%20consultor%20sobre%20a%20promoção%20da%20primeira%20consulta."
+        <a href="https://wa.me/5519981185783?text=Olá!%20Quero%20falar%20com%20um%20consultor%20sobre%20a%20promoção%20da%20primeira%20consulta."
           target="_blank" rel="noopener noreferrer"
           className="btn-consultor" style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}>
           Fale com um Consultor
         </a>
 
         <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.8rem", marginTop: "1rem" }}>
-          (19) 99954-5724 · Sujeito à disponibilidade de horários
+          (19) 98118-5783 · Sujeito à disponibilidade de horários
         </p>
       </div>
 

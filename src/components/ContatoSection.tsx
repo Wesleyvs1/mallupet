@@ -32,8 +32,8 @@ export default function ContatoSection() {
             {[
               {
                 icon: "📱", title: "WhatsApp",
-                value: "(19) 99954-5724",
-                link: "https://wa.me/5519999545724?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta.",
+                value: "(19) 98118-5783",
+                link: "https://wa.me/5519981185783?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta.",
                 linkText: "Enviar mensagem"
               },
               {
@@ -95,7 +95,7 @@ export default function ContatoSection() {
             ))}
 
             {/* Big WhatsApp CTA */}
-            <a href="https://wa.me/5519999545724?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor."
+            <a href="https://wa.me/5519981185783?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor."
               target="_blank" rel="noopener noreferrer"
               className="btn-consultor" style={{ width: "100%", justifyContent: "center", display: "flex", marginTop: "1.5rem" }}>
               Fale com um Consultor

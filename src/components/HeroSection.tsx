@@ -99,7 +99,7 @@ export default function HeroSection() {
           </p>
 
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <a href="https://wa.me/5519999545724?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor."
+            <a href="https://wa.me/5519981185783?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor."
               target="_blank" rel="noopener noreferrer" className="btn-consultor">
               Fale com um Consultor
             </a>
@@ -175,7 +175,7 @@ export default function HeroSection() {
               overflow: "hidden",
               zIndex: 3
             }}>
-              <Image src="/logo_clean.png" alt="Logo" fill style={{ objectFit: "contain" }} />
+              <Image src="/logo1_transparent.png" alt="Logo" fill style={{ objectFit: "contain" }} />
             </div>
           </div>
         </div>

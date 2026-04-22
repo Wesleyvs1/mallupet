@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight, X, Menu } from "lucide-react";
 
 import { produtos, categorias } from "@/data/products";
 
@@ -13,6 +13,7 @@ export default function CatalogoSection() {
   const [currentPage, setCurrentPage] = useState(0);
   const [produtoSelecionado, setProdutoSelecionado] = useState<typeof produtos[0] | null>(null);
   const [direction, setDirection] = useState(0);
+  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
 
   const filtered = useMemo(() => {
     return produtos.filter(p => {
@@ -50,7 +51,7 @@ export default function CatalogoSection() {
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 500 : -500,
+      x: direction > 0 ? 50 : -50,
       opacity: 0,
     }),
     center: {
@@ -60,7 +61,7 @@ export default function CatalogoSection() {
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 500 : -500,
+      x: direction < 0 ? 50 : -50,
       opacity: 0,
     })
   };
@@ -140,30 +141,80 @@ export default function CatalogoSection() {
           </div>
         </div>
 
-        {/* Category Filter */}
-        <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "2.5rem" }}>
-          {categorias.map(cat => (
-            <button key={cat} onClick={() => handleCategoryChange(cat)}
-              id={`cat-${cat.toLowerCase()}`}
+        {/* Category Filter - Compact with Hamburger Style */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem", position: "relative" }}>
+          <div style={{ position: "relative" }}>
+            <button 
+              onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
+              className="category-toggle"
               style={{
-                padding: "0.5rem 1.2rem", borderRadius: "9999px",
-                border: "2px solid",
-                borderColor: categoriaAtiva === cat ? "var(--teal)" : "rgba(43,188,212,0.2)",
-                background: categoriaAtiva === cat ? "var(--teal)" : "transparent",
-                color: categoriaAtiva === cat ? "white" : "var(--teal-dark)",
-                fontWeight: 700, fontSize: "0.85rem",
-                cursor: "pointer", transition: "all 0.25s ease"
-              }}>
-              {cat}
+                display: "flex", alignItems: "center", gap: "0.75rem",
+                padding: "0.8rem 2rem", borderRadius: "9999px",
+                background: "var(--teal)", color: "white",
+                border: "none", 
+                fontWeight: 800, cursor: "pointer",
+                boxShadow: "0 8px 25px rgba(43,188,212,0.25)",
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                fontSize: "0.95rem"
+              }}
+            >
+              <Menu size={20} strokeWidth={2.5} />
+              <span>{categoriaAtiva === "Todos" ? "Filtrar por Categoria" : categoriaAtiva}</span>
             </button>
-          ))}
+            
+            <AnimatePresence>
+              {isCategoryMenuOpen && (
+                <>
+                  {/* Backdrop to close menu */}
+                  <div 
+                    onClick={() => setIsCategoryMenuOpen(false)}
+                    style={{ position: "fixed", inset: 0, zIndex: 40 }}
+                  />
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    style={{
+                      position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)",
+                      marginTop: "0.8rem", background: "white", borderRadius: "1.2rem",
+                      boxShadow: "0 20px 50px rgba(0,0,0,0.12)",
+                      padding: "0.6rem", zIndex: 50,
+                      minWidth: "240px", border: "1px solid rgba(43,188,212,0.1)"
+                    }}
+                  >
+                    {categorias.map(cat => (
+                      <button 
+                        key={cat} 
+                        onClick={() => {
+                          handleCategoryChange(cat);
+                          setIsCategoryMenuOpen(false);
+                        }}
+                        style={{
+                          display: "block", width: "100%", textAlign: "left",
+                          padding: "0.8rem 1.2rem", borderRadius: "0.8rem",
+                          background: categoriaAtiva === cat ? "rgba(43,188,212,0.1)" : "transparent",
+                          color: categoriaAtiva === cat ? "var(--teal-dark)" : "var(--navy)",
+                          border: "none", fontWeight: categoriaAtiva === cat ? 700 : 500,
+                          cursor: "pointer", transition: "all 0.2s",
+                          fontSize: "0.9rem"
+                        }}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Products Grid with Horizontal Slide */}
-        <div style={{ position: "relative", minHeight: "800px", overflow: "hidden" }}>
-          <AnimatePresence initial={false} custom={direction} mode="wait">
+        <div style={{ position: "relative", minHeight: "800px" }}>
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={currentPage + (filtered.length > 0 ? "has-results" : "no-results")}
+              layout="position"
               custom={direction}
               variants={variants}
               initial="enter"
@@ -346,10 +397,23 @@ export default function CatalogoSection() {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "3rem" }}>
-          <a href="https://wa.me/5519999545724?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20produtos."
+          <a href="https://wa.me/5519981185783?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor%20sobre%20os%20produtos."
             target="_blank" rel="noopener noreferrer" className="btn-consultor">
             Fale com um Consultor
           </a>
+          
+          <p style={{ 
+            fontSize: "0.75rem", 
+            color: "#8FA8B8", 
+            marginTop: "2.5rem", 
+            maxWidth: "600px", 
+            marginInline: "auto",
+            lineHeight: 1.5,
+            opacity: 0.8
+          }}>
+            ⚠️ <strong>Aviso Legal:</strong> Consulte sempre um médico veterinário antes de medicar seu animal de estimação. 
+            Alguns produtos podem ter variações de dosagem (50mg/100mg) que influenciam no valor final.
+          </p>
         </div>
       </div>
 
@@ -410,16 +474,29 @@ export default function CatalogoSection() {
             <p style={{ color: "#5a7a8a", lineHeight: 1.7, marginBottom: "1.2rem" }}>
               {produtoSelecionado.descricao}
             </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "2rem" }}>
-              <div style={{ fontSize: "0.85rem", color: "#888" }}>
-                <strong style={{ color: "var(--navy)" }}>Indicação:</strong> {produtoSelecionado.indicacao}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", marginBottom: "1.5rem" }}>
+              <div style={{ fontSize: "0.9rem", color: "#5a7a8a" }}>
+                <strong style={{ color: "var(--navy)" }}>🐾 Indicação:</strong> {produtoSelecionado.indicacao}
               </div>
-              <div style={{ fontSize: "0.85rem", color: "#888" }}>
-                <strong style={{ color: "var(--navy)" }}>Fabricante:</strong> {produtoSelecionado.fabricante}
+              <div style={{ fontSize: "0.9rem", color: "#5a7a8a" }}>
+                <strong style={{ color: "var(--navy)" }}>🏢 Fabricante:</strong> {produtoSelecionado.fabricante}
+                {produtoSelecionado.fabricante === "UCBVET" && (
+                  <span style={{ marginLeft: "0.5rem", fontSize: "0.7rem", background: "var(--teal)", color: "white", padding: "0.1rem 0.4rem", borderRadius: "4px" }}>
+                    Qualidade Premium
+                  </span>
+                )}
               </div>
             </div>
+
+            <div style={{ 
+              background: "#FFF9E6", border: "1px solid #FFE58F", 
+              padding: "0.8rem", borderRadius: "1rem", marginBottom: "1.5rem",
+              fontSize: "0.8rem", color: "#856404"
+            }}>
+              <strong>Importante:</strong> Consulte sempre um médico veterinário antes de medicar seu pet.
+            </div>
             <a
-              href={`https://wa.me/5519999545724?text=Olá!%20Tenho%20interesse%20no%20produto%20${encodeURIComponent(produtoSelecionado.nome)}.%20Gostaria%20de%20falar%20com%20um%20consultor.`}
+              href={`https://wa.me/5519981185783?text=Olá!%20Tenho%20interesse%20no%20produto%20${encodeURIComponent(produtoSelecionado.nome)}.%20Gostaria%20de%20falar%20com%20um%20consultor.`}
               target="_blank" rel="noopener noreferrer"
               className="btn-consultor" style={{ width: "100%", justifyContent: "center", display: "flex" }}>
               Fale com um Consultor
@@ -433,6 +510,11 @@ export default function CatalogoSection() {
           border-color: var(--teal) !important;
           box-shadow: 0 10px 30px rgba(43,188,212,0.15) !important;
           transform: translateY(-2px);
+        }
+        .category-toggle:hover {
+          background: var(--teal-dark) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(43,188,212,0.35) !important;
         }
         @media (max-width: 900px) {
           .catalog-grid { grid-template-columns: repeat(2, 1fr) !important; }

@@ -114,7 +114,7 @@ export default function SobreSection() {
                 overflow: "hidden",
                 zIndex: 2
               }}>
-                <Image src="/logo_clean.png" alt="Logo" fill style={{ objectFit: "contain" }} />
+                <Image src="/logo1_transparent.png" alt="Logo" fill style={{ objectFit: "contain" }} />
               </div>
             </div>
           </div>

@@ -131,7 +131,7 @@ export default function ServicosSection() {
               </p>
 
               {/* CTA */}
-              <a href="https://wa.me/5519999545724?text=Olá!%20Tenho%20interesse%20no%20serviço%20de%20"
+              <a href="https://wa.me/5519981185783?text=Olá!%20Tenho%20interesse%20no%20serviço%20de%20"
                 target="_blank" rel="noopener noreferrer"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "0.3rem",

@@ -4,7 +4,7 @@ export default function WhatsAppFloat() {
   return (
     <a
       id="whatsapp-float"
-      href="https://wa.me/5519999545724?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20meu%20pet."
+      href="https://wa.me/5519981185783?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20meu%20pet."
       target="_blank"
       rel="noopener noreferrer"
       style={{

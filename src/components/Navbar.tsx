@@ -30,7 +30,7 @@ export default function Navbar() {
       <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
         <Link href="#hero" className="navbar-logo" style={{ display: "flex", alignItems: "center", textDecoration: "none", position: "relative" }}>
-          <Image src="/logo_clean.png" alt="Mallu Pet Logo" width={80} height={80}
+          <Image src="/logo1_transparent.png" alt="Mallu Pet Logo" width={80} height={80}
             style={{ objectFit: "contain", width: "100%", height: "100%" }} />
         </Link>
 
@@ -57,7 +57,7 @@ export default function Navbar() {
         </ul>
 
         {/* CTA Button */}
-        <a href="https://wa.me/5519999545724?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor."
+        <a href="https://wa.me/5519981185783?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor."
           target="_blank" rel="noopener noreferrer"
           className="btn-consultor hidden-mobile"
           style={{ fontSize: "0.85rem", padding: "0.6rem 1.3rem" }}>
@@ -90,7 +90,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href="https://wa.me/5519999545724?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor." target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/5519981185783?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor." target="_blank" rel="noopener noreferrer"
             className="btn-consultor" style={{ textAlign: "center" }}>
             Fale com um Consultor
           </a>

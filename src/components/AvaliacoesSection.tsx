@@ -103,7 +103,7 @@ export default function AvaliacoesSection() {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
-          <a href="https://wa.me/5519999545724?text=Olá!%20Quero%20agendar%20minha%20consulta%20na%20Mallu%20Pet!"
+          <a href="https://wa.me/5519981185783?text=Olá!%20Quero%20agendar%20minha%20consulta%20na%20Mallu%20Pet!"
             target="_blank" rel="noopener noreferrer" className="btn-primary">
             Faça Parte dos Nossos Clientes Felizes 🐾
           </a>

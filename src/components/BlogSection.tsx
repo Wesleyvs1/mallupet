@@ -2,29 +2,7 @@
 
 import Image from "next/image";
 
-const posts = [
-  {
-    emoji: "🐕",
-    titulo: "Dicas de Vacinação",
-    desc: "Saiba quando e como vacinar seu pet para mantê-lo protegido durante todo o ano.",
-    tag: "Saúde",
-    cor: "#E0F7FA"
-  },
-  {
-    emoji: "🥗",
-    titulo: "Nutrição Saudável",
-    desc: "Descubra como montar a dieta perfeita para o seu cão ou gato com orientação veterinária.",
-    tag: "Nutrição",
-    cor: "#F3E5F5"
-  },
-  {
-    emoji: "🛁",
-    titulo: "Cuidados com a Higiene",
-    desc: "Dicas práticas de higiene e grooming para manter seu pet sempre bonito e sargável.",
-    tag: "Cuidados",
-    cor: "#FFF9C4"
-  },
-];
+import { blogPosts } from "@/data/blog";
 
 export default function BlogSection() {
   return (
@@ -51,8 +29,8 @@ export default function BlogSection() {
         <div style={{
           display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem"
         }} className="blog-grid">
-          {posts.map((post, i) => (
-            <a key={i} href="https://www.instagram.com/vet.eri_mallupet/"
+          {blogPosts.map((post, i) => (
+            <a key={i} href={post.link}
               target="_blank" rel="noopener noreferrer"
               style={{
                 display: "block", textDecoration: "none",
@@ -71,19 +49,24 @@ export default function BlogSection() {
                 el.style.boxShadow = "none";
               }}>
 
-              {/* Header area */}
+              {/* Image area */}
               <div style={{
-                background: post.cor,
-                height: "160px",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "4rem", position: "relative"
+                height: "200px",
+                position: "relative",
+                overflow: "hidden"
               }}>
-                {post.emoji}
+                <Image
+                  src={post.imagem}
+                  alt={post.titulo}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
                 <div style={{
                   position: "absolute", top: "1rem", right: "1rem",
                   background: "var(--teal)", color: "white",
                   padding: "0.25rem 0.7rem", borderRadius: "9999px",
-                  fontSize: "0.7rem", fontWeight: 700
+                  fontSize: "0.7rem", fontWeight: 700,
+                  zIndex: 2
                 }}>
                   {post.tag}
                 </div>

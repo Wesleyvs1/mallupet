@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Mallu Pet | Cuidado Veterinário com Amor e Dedicação",
   description:
-    "A Mallu Pet oferece consultas veterinárias, vacinação completa, exames laboratoriais e muito mais. Seu pet merece saúde, carinho e atenção de verdade! Agende agora pelo WhatsApp: (19) 99954-5724",
+    "A Mallu Pet oferece consultas veterinárias, vacinação completa, exames laboratoriais e muito mais. Seu pet merece saúde, carinho e atenção de verdade! Agende agora pelo WhatsApp: (19) 98118-5783",
   keywords: [
     "veterinária", "consultório veterinário", "mallu pet", "consulta veterinária",
     "vacinação pets", "cuidados com animais", "gatos", "cachorros"
