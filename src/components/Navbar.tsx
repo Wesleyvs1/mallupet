@@ -30,8 +30,15 @@ export default function Navbar() {
       <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
         <Link href="#hero" className="navbar-logo" style={{ display: "flex", alignItems: "center", textDecoration: "none", position: "relative" }}>
-          <Image src="/logo1_transparent.png" alt="Mallu Pet Logo" width={80} height={80}
-            style={{ objectFit: "contain", width: "100%", height: "100%" }} />
+          <Image 
+            src="/logo1_transparent.png" 
+            alt="Mallu Pet Logo" 
+            width={80} 
+            height={80}
+            priority
+            sizes="(max-width: 768px) 60px, 80px"
+            style={{ objectFit: "contain" }} 
+          />
         </Link>
 
         {/* Desktop Links */}

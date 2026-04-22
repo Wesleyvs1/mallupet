@@ -163,8 +163,10 @@ export default function HeroSection() {
                 src="/mascote.png.jpeg"
                 alt="Mascote Mallu Pet - Dr. Gato"
                 fill
+                sizes="(max-width: 768px) 180px, 420px"
                 style={{ objectFit: "cover", objectPosition: "center top" }}
                 priority
+                {...({ fetchPriority: "high" } as any)}
               />
             </div>
 
@@ -175,7 +177,13 @@ export default function HeroSection() {
               overflow: "hidden",
               zIndex: 3
             }}>
-              <Image src="/logo1_transparent.png" alt="Logo" fill style={{ objectFit: "contain" }} />
+              <Image 
+                src="/logo1_transparent.png" 
+                alt="Logo" 
+                fill 
+                sizes="(max-width: 768px) 45px, 80px"
+                style={{ objectFit: "contain" }} 
+              />
             </div>
           </div>
         </div>
