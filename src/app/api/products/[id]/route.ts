@@ -1,4 +1,4 @@
-import { getProducts, saveProducts } from '@/lib/mockDb';
+import { supabase } from '@/lib/supabase';
 
 export async function PUT(
   request: Request,
@@ -7,21 +7,25 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-    const products = getProducts();
-    
-    const index = products.findIndex(p => p.id === id);
-    if (index === -1) {
-      return Response.json({ error: 'Produto não encontrado' }, { status: 404 });
+
+    // Remove campos que não devem ser atualizados manualmente ou via body bruto
+    const { id: _, created_at, ...updateData } = body;
+
+    const { data, error } = await supabase
+      .from('products')
+      .update({
+        ...updateData,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) {
+      return Response.json({ error: error.message }, { status: 500 });
     }
-    
-    products[index] = {
-      ...products[index],
-      ...body,
-      updated_at: new Date().toISOString(),
-    };
-    
-    saveProducts(products);
-    return Response.json(products[index]);
+
+    return Response.json(data);
   } catch {
     return Response.json({ error: 'Erro interno do servidor' }, { status: 500 });
   }
@@ -33,11 +37,16 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const products = getProducts();
-    
-    const filtered = products.filter(p => p.id !== id);
-    saveProducts(filtered);
-    
+
+    const { error } = await supabase
+      .from('products')
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      return Response.json({ error: error.message }, { status: 500 });
+    }
+
     return Response.json({ success: true });
   } catch {
     return Response.json({ error: 'Erro interno do servidor' }, { status: 500 });

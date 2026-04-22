@@ -1,16 +1,23 @@
+import { supabase } from '@/lib/supabase';
+
 export async function POST(request: Request) {
   try {
     const { email, password } = await request.json();
 
-    if (email === 'admin@mallupet.com' && password === 'admin123') {
-      return Response.json({ 
-        user: { email: 'admin@mallupet.com' }, 
-        session: { access_token: 'mock_token_123' } 
-      });
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      return Response.json({ error: 'Erro ao fazer login: ' + error.message }, { status: 401 });
     }
 
-    return Response.json({ error: 'Credenciais inválidas. Use admin@mallupet.com e senha admin123' }, { status: 401 });
-  } catch {
+    return Response.json({ 
+      user: data.user, 
+      session: data.session 
+    });
+  } catch (err) {
     return Response.json({ error: 'Erro interno do servidor' }, { status: 500 });
   }
 }
