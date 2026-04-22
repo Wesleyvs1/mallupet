@@ -277,4 +277,19 @@ img, svg, [role="img"], [aria-hidden="true"], .stars, .paw-float,
   -webkit-user-drag: none;
 }
 
+/* ─── Logo Contrast Enhancement ─── */
+img[alt*="Logo"], 
+img[src*="logo"],
+img[src*="LOGO"] {
+  filter: contrast(1.2) brightness(1.1) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+
+
+img[alt*="Logo"]:hover, 
+img[src*="logo"]:hover {
+  filter: contrast(1.25) brightness(1.15);
+}
+
+
 
