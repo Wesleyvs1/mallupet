@@ -438,10 +438,15 @@ export default function CatalogoSection() {
             <button onClick={() => setProdutoSelecionado(null)}
               style={{
                 position: "absolute", top: "1.5rem", right: "1.5rem",
-                background: "rgba(43,188,212,0.1)", border: "none",
-                width: "32px", height: "32px", borderRadius: "50%",
-                cursor: "pointer", fontSize: "1rem", color: "var(--navy)"
-              }}>
+                background: "rgba(43,188,212,0.15)", border: "none",
+                width: "36px", height: "36px", borderRadius: "50%",
+                cursor: "pointer", fontSize: "1.1rem", color: "var(--navy)",
+                zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center",
+                transition: "all 0.2s ease",
+                backdropFilter: "blur(4px)"
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = "rgba(43,188,212,0.3)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "rgba(43,188,212,0.15)")}>
               ✕
             </button>
 
