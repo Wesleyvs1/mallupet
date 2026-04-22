@@ -125,7 +125,7 @@ export default function HeroSection() {
                   color: "var(--teal-light)",
                   display: "flex",
                   alignItems: "center",
-                  gap: s.icon ? "0.6rem" : "0"
+                  gap: s.icon ? "0.8rem" : "0"
                 }}>
                   {s.num}{s.icon}
                 </div>
