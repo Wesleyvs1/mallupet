@@ -114,9 +114,9 @@ export default function HeroSection() {
             paddingBottom: "2rem"
           }}>
             {[
-              { num: "+100", label: "Pets Atendidos" },
+              { num: "500+", label: "Pets Atendidos" },
               { num: "5", label: "Avaliação Média", icon: "⭐" },
-              { num: "6+", label: "Serviços" },
+              { num: "10+", label: "Anos de Serviço" },
             ].map(s => (
               <div key={s.label}>
                 <div style={{ 
